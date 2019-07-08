@@ -15,7 +15,7 @@ def count_10_word_in_xml():
     format_description = []
     for word in descriptions:
         if len(word) > 6:
-            format_description.append(word)
+            format_description.append(word.lower())
 
     def sortByLength(inputStr):
         return len(inputStr)

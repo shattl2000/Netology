@@ -17,7 +17,7 @@ def count_10_word_in_json():
 
         for elem in sum(descriptions, []):
             if len(elem) > 6:
-                format_description.append(elem)
+                format_description.append(elem.lower())
 
         def sortByLength(inputStr):
             return len(inputStr)
