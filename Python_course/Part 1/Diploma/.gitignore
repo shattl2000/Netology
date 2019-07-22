@@ -1,0 +1,10 @@
+*.pyc
+*.log
+__pycache__
+.vscode
+*.vscode
+*.idea
+result.txt
+Test code
+test_code.py
+groups.json
