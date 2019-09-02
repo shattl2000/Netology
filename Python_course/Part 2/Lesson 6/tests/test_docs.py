@@ -32,6 +32,16 @@ class TestAppDocs(unittest.TestCase):
         with patch('app.input', return_value="11-2") as _:
             self.assertTrue(app.delete_doc())
 
+    def test_remove_doc_from_shelf(self):
+        doc_number = 10006
+        shelf_number = '2'
+        app.remove_doc_from_shelf(doc_number=doc_number)
+        self.assertFalse(doc_number, directories[shelf_number])
+
+    def test_get_doc_owner_name_exist(self):
+        with patch('src.app.input', return_value='10006'):
+            self.assertEqual(app.get_doc_owner_name(), "Аристарх Павлов")
+
 
 if __name__ == '__main__':
     unittest.main()
