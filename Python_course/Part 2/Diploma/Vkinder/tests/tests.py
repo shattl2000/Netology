@@ -2,7 +2,7 @@ import unittest
 from Vkinder.vkinder import Vkinder
 from mock import patch
 
-info_user = [{'id': 5211684, 'first_name': 'Александр', 'last_name': 'Кузьмин',
+info_user = [{'id': , 'first_name': 'Александр', 'last_name': 'Кузьмин',
               'sex': 2, 'bdate': '9.7.1988', 'city': {'id': 1, 'title': 'Москва'},
               'interests': '', 'music': '', 'books': ''}]
 
