@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+<main role="main">
+
+
+  <div class="container mt-3">
+    <!-- Example row of columns -->
+    <div class="row">
+      <div class="col-md-12">
+        <h2>{{ product.name }}</h2>
+
+        <img src="{{ product.picture.url }}" width="120">
+
+        <p><b>{{ product.price }} рублей</b></p>
+        <p>{{ product.description|linebreaks }}</p>
+        <form method="post" action="{%  url 'add_to_cart' product.id %}">
+        {% csrf_token %}
+            <input type="submit" class="btn btn-secondary" id="product" value="Добавить в корзину">
+        </form>
+      </div>
+    </div>
+    <hr>
+  </div> <!-- /container -->
+
+
+</main>
+
+{% endblock content %}

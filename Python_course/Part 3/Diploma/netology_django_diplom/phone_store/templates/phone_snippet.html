@@ -1,0 +1,10 @@
+<div class="col-md-4">
+    <h2>{{ product.name }}</h2>
+    <a href="/category/{{ product.category.first.slug}}/{{ product.id }}">
+        <img src="{{ product.picture.url }}" width="180">
+    </a>
+    <form method="post" action="{%  url 'add_to_cart' product.id %}">
+    {% csrf_token %}
+        <input type="submit" class="btn btn-secondary" id="product" value="Добавить в корзину">
+    </form>
+</div>

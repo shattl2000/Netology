@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+<main>
+<div class="container">
+    <h2>Ваш профиль</h2>
+    <p> {{ customer.user.first_name }}</p>
+    <h3>Корзина</h3>
+    {% if cart %}
+    <form action="{% url 'make_order' %}" method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary" id="order">Заказать</button>
+    </form>
+    {% endif %}
+    <table class="table">
+    <tr>
+        <td></td>
+        <td></td>
+        <td>Сумма заказа:</td>
+        <td>{{ total_price }}</td>
+    </tr>
+    <tr>
+        <th></th>
+        <th>Количество</td>
+        <th>Товар</td>
+        <td>Сумма</td>
+    </tr>
+    {% for item in cart %}
+    <tr>
+        <td><img src="{{ item.product.picture.url }}" width="180"></td>
+        <td>{{ item.qty }}</td>
+        <td>{{ item.product.name }}</td>
+        <td>{{ item.sum_price }} р</td>
+    </tr>
+    {% endfor %}
+    </table>
+</div>
+</main>
+{% endblock content %}

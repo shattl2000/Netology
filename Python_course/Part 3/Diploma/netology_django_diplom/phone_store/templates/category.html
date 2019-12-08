@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+
+<main role="main">
+
+  <div class="container">
+    <!-- Example row of columns -->
+
+    <h1>{{ category.name }}</h1>
+
+    {% for row in products_page %}
+    <div class="row">
+      {% for product in row %}
+      <div class="col-md-4">
+        <h2>{{ product.name }}</h2>
+        <a href="{% url 'show_product' category.name product.id %}">
+          <img src="{{ product.picture.url }}" width="180">
+        </a>
+        <form>
+          <input type="submit" class="btn btn-secondary" value="Добавить в корзину »">
+        </form>
+      </div>
+      {% endfor %}
+    </div>
+    {% endfor %}
+    <div class="row">
+    {% if prev_page_url %} <a class="btn bth_pimary" href="{{ prev_page_url }}">⟵</a>{% endif %}
+    <a class="btn disabled" href="">{{ current_page }}</a>
+    {% if next_page_url %} <a class="btn btn_pimary" href="{{ next_page_url }}">⟶</a>{% endif %}
+    </div>
+    </div> <!-- /container -->
+
+</main>
+
+{% endblock content %}

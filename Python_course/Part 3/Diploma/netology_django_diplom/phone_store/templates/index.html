@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}Лучшие телефоны{% endblock title %}
+
+{% block content %}
+<main role="main">
+
+  <div class="jumbotron">
+    <div class="container">
+      <h1 class="display-4">Просто интернет магазин</h1>
+      {% for article in articles %}
+      <p><a href="articles/{{ article.slug }}/">{{ article.title }}</a></p>
+      {% endfor %}
+    </div>
+  </div>
+
+
+  <div class="container mb-5">
+    <!-- Example row of columns -->
+    <div class="row">
+      {% for product in products %}
+        {% include 'phone_snippet.html' %}
+      {% endfor %}
+  </div> <!-- /container -->
+
+</main>
+{% endblock content %}
